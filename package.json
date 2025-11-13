@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bun-plugin-tailwind": "^0.1.2",
+    "nanoid": "^5.1.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwindcss": "^4.1.11"

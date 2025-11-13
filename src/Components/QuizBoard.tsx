@@ -1,10 +1,6 @@
 import React, { type JSX } from "react";
-
-interface Problem {
-  _id: string;
-  statement: string;
-  options: string[];
-}
+import type { Options } from "@/Interface/Quiz.Interface";
+import type { Problem } from "@/Interface/Quiz.Interface";
 
 function QuizBoard({ _id, statement, options }: Problem): JSX.Element {
   return (
@@ -14,20 +10,20 @@ function QuizBoard({ _id, statement, options }: Problem): JSX.Element {
         <div className="flex flex-col justify-center items-center gap-5 w-1/2">
           <h1 className="text-xl">{statement}</h1>
           <div className="flex flex-col gap-3 border rounded-md w-full">
-            {options.map((element: string): JSX.Element => {
+            {options.map((element: Options): JSX.Element => {
               return (
-                <div className="w-full" key={_id}>
+                <div className="w-full" key={element._id}>
                   <input
                     type="radio"
                     name="option"
-                    id="option-1"
+                    id={element._id}
                     className="hidden peer"
                   />
                   <label
-                    htmlFor="option-1"
+                    htmlFor={element._id}
                     className="peer-checked:bg-blue-700 peer-checked:text-white px-3 py-2 block"
                   >
-                    {element}
+                    {element.option}
                   </label>
                 </div>
               );
